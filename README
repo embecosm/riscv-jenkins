@@ -1,0 +1,2 @@
+This repository contains a Jenkinsfile and relevant patches for running a
+Jenkins job that builds and tests a bare metal RV32G toolchain.
