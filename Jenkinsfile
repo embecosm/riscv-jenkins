@@ -40,7 +40,7 @@ node ('buildnode') {
       }
       // Test components
       dir('gcc-tests') {
-        git url: 'https://github.com/embecosm/gcc-for-llvm-testing.git', branch: 'llvm-master'
+        git url: 'https://github.com/embecosm/gcc-for-llvm-testing.git', branch: 'llvm-testing'
       }
   }
 
