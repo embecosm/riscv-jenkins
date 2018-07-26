@@ -42,9 +42,6 @@ node ('buildnode') {
       dir('gcc-tests') {
         git url: 'https://github.com/embecosm/gcc-for-llvm-testing.git', branch: 'llvm-master'
       }
-      dir('riscv-llvm-testing') {
-        git url: 'https://github.com/simonpcook/riscv-llvm-testing.git', branch: 'master'
-      }
   }
 
   // Build various components
