@@ -167,7 +167,7 @@ def runtests_env():
     bindir = os.path.join(TOPDIR, 'install', 'bin')
     path = '%s:%s' % (bindir, env['PATH'])
     env['PATH'] = path
-    env['DEJAGNU'] = os.path.join(os.path.dirname(__file__), 'site.exp')
+    env['DEJAGNU'] = os.path.join(TOPDIR, 'riscv-llvm-testing', 'site.exp')
     return env
 
 def runtests(i, test_set, tests):
