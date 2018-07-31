@@ -1,0 +1,6 @@
+Embecosm Pre-compiled RISC-V Toolchain
+======================================
+
+This repository contains a Jenkinsfile and Dockerfiles for building a set
+of RISC-V GNU Tools from (mostly) upstream sources, testing the compilers
+for these and publishing the result to the Docker Hub.
