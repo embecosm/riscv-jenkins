@@ -13,7 +13,7 @@ node ('buildnode') {
       git url: 'https://github.com/riscv/riscv-gnu-toolchain.git', branch: 'master'
     }
     dir('riscv-gnu-toolchain/riscv-binutils') {
-      git url: 'https://sourceware.org/git/binutils-gdb.git', branch: 'master'
+      git url: 'https://github.com/embecosm/riscv-binutils-gdb.git', branch: 'embecosm-cgen-assembler'
     }
     dir('riscv-gnu-toolchain/riscv-gcc') {
       checkout([$class: 'GitSCM',
