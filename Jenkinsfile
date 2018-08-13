@@ -1,3 +1,15 @@
+// Specify parameters to configure which repo and branch to build
+properties([parameters([
+             string(defaultValue: 'llvm-mirror/llvm', description: 'LLVM Github Repo Name', name: 'LLVMRepoName'),
+             string(defaultValue: 'master', description: 'LLVM Branch Name', name: 'LLVMBranchName'),
+             string(defaultValue: 'llvm-mirror/clang', description: 'Clang Github Repo Name', name: 'ClangRepoName'),
+             string(defaultValue: 'master', description: 'Clang Branch Name', name: 'ClangBranchName'),
+])])
+
+// Set job name based on repo and branch names
+String JobName = 'llvm:' + params.LLVMRepoName + ':' + params.LLVMBranchName + ',clang:' + params.ClangRepoName + ':' + params.ClangBranchName
+currentBuild.displayName = JobName
+
 node ('buildnode') {
   // Cleanup previous build and log files
   stage('Cleanup') {
@@ -32,11 +44,11 @@ node ('buildnode') {
       }
       // LLVM components
       dir('llvm/llvm') {
-        git url: 'https://github.com/llvm-mirror/llvm.git', branch: 'master'
+        git url: 'https://github.com/' + '${LLVMRepoName}' + '.git', branch: '${LLVMBranchName}'
         sh 'cd tools && ln -sf ../../clang'
       }
       dir('llvm/clang') {
-        git url: 'https://github.com/llvm-mirror/clang.git', branch: 'master'
+        git url: 'https://github.com/' + '${ClangRepoName}' + '.git', branch: '${ClangBranchName}'
       }
       // Test components
       dir('gcc-tests') {
