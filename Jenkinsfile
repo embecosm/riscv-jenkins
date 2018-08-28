@@ -36,6 +36,7 @@ node ('buildnode') {
             sh '''cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON \
                         -DCMAKE_INSTALL_PREFIX=${WORKSPACE}/install \
                         -DLLVM_ENABLE_THREADS=OFF \
+                        -DLLVM_BINUTILS_INCDIR=/usr/lib/gcc/x86_64-linux-gnu/7/plugin/include \
                         -G Ninja ../llvm > ../../build-llvm.log 2>&1'''
             sh 'ninja install >> ../../build-llvm.log 2>&1'
           }
