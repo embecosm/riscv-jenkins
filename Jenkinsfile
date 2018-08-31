@@ -37,6 +37,7 @@ node ('buildnode') {
       }
       dir('llvm/clang') {
         git url: 'https://github.com/llvm-mirror/clang.git', branch: 'master'
+        sh 'git am ${WORKSPACE}/patches/clang-D50246-163339.patch || git am --abort'
       }
       // Test components
       dir('gcc-tests') {
