@@ -45,7 +45,7 @@ node ('buildnode') {
       try {
         docker.image('embecosm/buildenv').inside {
           dir('riscv-gnu-toolchain') {
-            sh './configure --prefix=${WORKSPACE}/install --with-arch=rv32imac --with-abi=ilp32 > ../build.log 2>&1'
+            sh './configure --prefix=${WORKSPACE}/install --with-arch=rv32gc --with-abi=ilp32 > ../build.log 2>&1'
             sh 'make -j$(nproc) >> ../build.log 2>&1'
           }
         }
