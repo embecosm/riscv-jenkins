@@ -1,4 +1,4 @@
 # RISC-V specific site.exp
 # Explicitly set the target
-set target_triplet riscv32-unknown-elf
-set target_alias riscv32-unknown-elf
+set target_triplet riscv64-unknown-elf
+set target_alias riscv64-unknown-elf

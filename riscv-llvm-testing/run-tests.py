@@ -35,9 +35,9 @@ TOPDIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TEST_SUITE = os.path.join(TOPDIR, 'gcc-tests', 'gcc', 'testsuite')
 DG_EXTRACT_RESULTS = os.path.join(TOPDIR, 'gcc-tests', 'contrib', 'dg-extract-results.py')
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), 'test-output')
-TEST_TOOL = 'riscv32-unknown-elf-clang'
-TEST_BOARD = 'riscv-sim/-march=rv32gc/-mabi=ilp32'
-TEST_TARGET = 'riscv32-unknown-elf'
+TEST_TOOL = 'riscv64-unknown-elf-clang'
+TEST_BOARD = 'riscv-sim/-march=rv64gc/-mabi=lp64'
+TEST_TARGET = 'riscv64-unknown-elf'
 RUNTEST_FLAGS = []
 
 TestSet = namedtuple('TestSet', ['tool', 'set_dir', 'sub_dir', 'expect_file'])

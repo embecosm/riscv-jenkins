@@ -11,7 +11,7 @@ node ('buildnode') {
   // Checkout git repositories
   stage('Checkout') {
       // This repository holds patches to apply to toolchain sources
-      git url: 'https://github.com/embecosm/riscv-llvm-jenkins.git', branch: 'master'
+      git url: 'https://github.com/embecosm/riscv-llvm-jenkins.git', branch: 'master-rv64'
       // GNU components
       dir('riscv-gnu-toolchain') {
         checkout([$class: 'GitSCM',
@@ -50,7 +50,7 @@ node ('buildnode') {
       try {
         docker.image('embecosm/buildenv').inside {
           dir('riscv-gnu-toolchain') {
-            sh './configure --prefix=${WORKSPACE}/install --with-arch=rv32gc --with-abi=ilp32 > ../build-gnu.log 2>&1'
+            sh './configure --prefix=${WORKSPACE}/install --with-arch=rv64gc --with-abi=lp64 > ../build-gnu.log 2>&1'
             sh 'make -j$(nproc) >> ../build-gnu.log 2>&1'
           }
         }
@@ -75,7 +75,7 @@ node ('buildnode') {
           }
         }
         dir('install/bin') {
-          sh 'ln -sf clang riscv32-unknown-elf-clang'
+          sh 'ln -sf clang riscv64-unknown-elf-clang'
         }
       }
       finally {
