@@ -87,7 +87,7 @@ node ('dockerbuilder') {
       }
       catch (Exception e) {}
       finally {
-        archiveArtifacts allowEmptyArchive: true, fingerprint: true, artifacts: 'check-newlib.log, riscv-gnu-toolchain/build-gcc-linux-stage2/gcc/testsuite/*/*.sum, riscv-gnu-toolchain/build-gcc-linux-stage2/gcc/testsuite/*/*.log'
+        archiveArtifacts allowEmptyArchive: true, fingerprint: true, artifacts: 'check-linux.log, riscv-gnu-toolchain/build-gcc-linux-stage2/gcc/testsuite/*/*.sum, riscv-gnu-toolchain/build-gcc-linux-stage2/gcc/testsuite/*/*.log'
       }
     }
   }
