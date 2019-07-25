@@ -12,7 +12,7 @@ node ('dockerbuilder') {
       git url: 'https://github.com/riscv/riscv-gnu-toolchain.git', branch: 'master'
     }
     dir('riscv-gnu-toolchain/riscv-binutils') {
-      git url: 'https://sourceware.org/git/binutils-gdb.git', branch: 'master'
+      git url: 'https://github.com/bminor/binutils-gdb.git', branch: 'master'
     }
     dir('riscv-gnu-toolchain/riscv-gcc') {
       checkout([$class: 'GitSCM',
@@ -28,7 +28,7 @@ node ('dockerbuilder') {
       git url: 'https://github.com/riscv/riscv-dejagnu.git', branch: 'riscv-dejagnu-1.6'
     }
     dir('riscv-gnu-toolchain/riscv-newlib') {
-      git url: 'https://sourceware.org/git/newlib-cygwin.git', branch: 'master'
+      git url: 'https://github.com/bminor/newlib.git', branch: 'master'
     }
     dir('riscv-gnu-toolchain/riscv-qemu') {
       git url: 'git://git.qemu.org/qemu.git', branch: 'master'
